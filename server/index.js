@@ -23,6 +23,9 @@ const io = new Server(httpServer, {
 })
 
 const cosmosService = registerSocket(io)
+app.get("/",(req,res) => {
+  res.send("Server is running");
+})
 app.use(createHealthRoutes(cosmosService))
 
 httpServer.listen(PORT, () => {
